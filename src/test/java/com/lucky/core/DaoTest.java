@@ -26,18 +26,12 @@ public class DaoTest {
 	@Test
 	public void springTest() {
 		MemberDao dao = (MemberDao) ctx.getBean("memberDao");
-		System.out.println(dao.getClass().getName());
-		System.out.println(dao.getClass().getMethods());
-		Method[] ms = dao.getClass().getMethods();
-		for(Method mm :ms){
-			System.out.println(mm.getName());
-		}
-		Member member = new Member();
-		member.setAccount("test");
+		/*Member member = new Member();
+		member.setAccount("test2");
 		member.setPassword("afdsa"); 
 		member.setNickName("nickName");
 		member.setRegisterDateTime(new Date());
-		dao.saveMember(member);
+		dao.saveMember(member);*/
 	
 		List<Member> members = dao.getAllMember();
 		for (Member m : members) {
