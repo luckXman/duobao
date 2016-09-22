@@ -31,7 +31,7 @@
 	    <property name="configLocation" value="classpath:mybatisConfig.xml"></property>  
 	</bean>  
 	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
-	    <property name="mapperInterface" value="com.lucky.core.entity.member.MemberService"></property>  
+	    <property name="mapperInterface" value="com.lucky.core.entity.member.MemberDao"></property>  
 	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
 	</bean>  
 </beans>
