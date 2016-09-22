@@ -6,5 +6,5 @@ public interface MemberDao {
 	public Member getMemberById(int id);
 	public void saveMember(Member member);
 	public void deleteMemberById(int id);
-	public List<Member> getAllMember();
+	
 }

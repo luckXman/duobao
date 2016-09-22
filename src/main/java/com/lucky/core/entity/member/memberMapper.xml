@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="memberMapper">
+<mapper namespace="com.lucky.core.entity.member.MemberDao">
 	<select id="getMemberById" parameterType="int" resultType = "com.lucky.core.entity.member.Member">
 		select * from member where id=#{id}
 	</select>
-	<select id="getAllMember" resultType="java.util.List">
-		select * from member order by id desc
-	</select>
-	
-	<insert id="saveMember" parameterType="com.lucky.core.entity.member.Member">
+	<insert id="saveMember" parameterType="com.lucky.core.entity.member.Member" flushCache="true">
 		insert into member (account,password,nick_name,register_Date_Time) 
 					values (#{account},#{password},#{nickName},#{registerDateTime})
 	</insert>
