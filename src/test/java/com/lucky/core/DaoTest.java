@@ -39,10 +39,10 @@ public class DaoTest {
 		member.setRegisterDateTime(new Date());
 		dao.saveMember(member);
 	
-		/*List<Member> members = dao.getAllMember();
+		List<Member> members = dao.getAllMember();
 		for (Member m : members) {
 			System.out.println(m);
-		}*/
+		}
 	}
 
 	@After
