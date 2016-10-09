@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="memberMapper">
-	<select id="getMemberById" parameterType="int" resultType = "com.lucky.service.entity.member.Member">
-		select * from member where id=#{id}
+<mapper namespace="addressMapper">
+	<select id="getAddressById" parameterType="int" resultType = "com.lucky.service.entity.member.Address">
+		select * from address where id=#{id}
 	</select>
-	<insert id="insertMember" parameterType="com.lucky.service.entity.member.Member">
-		insert into member (account,password,nick_name,register_Date_Time) 
+	<insert id="insertAddress" parameterType="com.lucky.service.entity.member.Address">
+		insert into Address (account,password,nick_name,register_Date_Time) 
 					values (#{account},#{password},#{nickName},#{registerDateTime})
 	</insert>
 	
-	<delete id="deleteMemberById" parameterType="int">
-		delete from member where id=#{id}
+	<delete id="deleteAddressById" parameterType="int">
+		delete from Address where id=#{id}
 	</delete>
 	
-	<resultMap type="com.lucky.service.entity.member.Member" id="memberResultMap">
+	<resultMap type="com.lucky.service.entity.member.Address" id="addressResultMap">
 		<id property="id" column="id"/>
 		<result property="account" column="ACCOUNT"/>
 		<result property="nickName" column="NICK_NAME"/>
