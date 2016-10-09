@@ -19,9 +19,9 @@ public class MybatisTest {
 		String statement = "memberMapper.insertMember";
 
 		Member member = new Member();
-		member.setAccount("testone2");
-		member.setPassword("111111");
-		member.setNickName("哈哈");
+		member.setAccount("testone2f");
+		member.setPassword("1111113f");
+		member.setNickName("哈哈d");
 		member.setRegisterDateTime(new Date());
 		System.out.println(session.insert(statement, member));
 		session.commit();
