@@ -41,8 +41,8 @@ public class Term extends AbstractTerm implements java.io.Serializable {
 
 	public String getFirstImage(){
 		String url = "";
-			if(this.getLuckProduct()!= null){
-				String arr = this.getLuckProduct().getPicArr();
+			if(this.getProduct()!= null){
+				String arr = this.getProduct().getPicArr();
 				if(!StringUtil.isNullOrBlank(arr)){
 					url = arr.split(",")[0];
 				}

@@ -22,56 +22,56 @@ public abstract class AbstractTerm implements java.io.Serializable {
 	private Integer id; //
 
 	@JSONField(name = "product")
-	private Product luckProduct; // ��Ʒid
+	private Product product; // 产品id
 
-	private String term; // ����
+	private String term; // 期数
 
-	private Integer totalPart; // �ܷ���
+	private Integer totalPart; // 总份数
 
-	private Integer soldPart; // �����۷���
+	private Integer soldPart; // 已销售份数
 
-	private Integer modPart; // ʣ�����
+	private Integer modPart; // 剩余份数
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss", serialize = false)
-	private Date createTime; // ����ʱ��
+	private Date createTime; // 创建时间
 
 	@JSONField(serialize = false)
-	private Integer hot; // �ȶ�
+	private Integer hot; // 热度
 
 	@JSONField(serialize = false)
-	private Integer isPos; // �Ƿ��Ƽ� 1/0 ��/��
+	private Integer isPos; // 是否推荐 1/0 是/否
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss")
-	private Date openTime; // ����ʱ��
+	private Date openTime; // 开奖时间
 
 	@JSONField(serialize = false)
-	private TermStatus status; // ״̬
+	private TermStatus status; // 状态
 
 	@JSONField(serialize = false)
-	private String account; // �н���
+	private String account; // 中奖人
 
 	@JSONField(name = "mId")
-	private Integer memberId; // �н���
+	private Integer memberId; // 中奖人
 
-	private String luckNum; // ������
+	private String luckNum; // 开奖码
 
 	@JSONField(name = "sum")
-	private String openCounttime; // ��ʱ�����
+	private String openCounttime; // 总时间相加
 
-	private Integer multPart; // ÿ��ֻ�ܹ���������ı��� -1(������)
+	private Integer multPart; // 每次只能购买的这个数的倍数 -1(无限制)
 
-	private Integer maxPart; // �޹�����
+	private Integer maxPart; // 限购份数
 
 	@JSONField(format = "yyyy-MM-dd HH:mm:ss.SSS")
-	private Date finishTime; // ���ʱ��
+	private Date finishTime; // 完成时间
 
 	@JSONField(name = "buyNum")
-	private Integer memberBuyNum; // �н��˹���ķ���
+	private Integer memberBuyNum; // 中奖人购买的份数
 
 	@JSONField(name = "ip")
-	private String memberIp; // �н��˵�IP��ַ
+	private String memberIp; // 中奖人的IP地址
 
-	private Integer perScore; // ÿ�ݻ��
+	private Integer perScore; // 每份积分
 
 	// Constructors
 
@@ -80,8 +80,9 @@ public abstract class AbstractTerm implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public AbstractTerm(Product luckProduct, String term, Integer totalPart, Date createTime, TermStatus status, Integer multPart) {
-		this.luckProduct = luckProduct;
+	public AbstractTerm(Product product, String term, Integer totalPart, Date createTime, TermStatus status,
+			Integer multPart) {
+		this.product = product;
 		this.term = term;
 		this.totalPart = totalPart;
 		this.createTime = createTime;
@@ -90,10 +91,11 @@ public abstract class AbstractTerm implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AbstractTerm(Product luckProduct, String term, Integer totalPart, Integer soldPart, Integer modPart, Date createTime, Integer hot,
-			Integer isPos, Date openTime, TermStatus status, String account, String luckNum, String openCounttime, Integer multPart,
-			Integer maxPart, Date finishTime, Integer memberBuyNum, String memberIp) {
-		this.luckProduct = luckProduct;
+	public AbstractTerm(Product product, String term, Integer totalPart, Integer soldPart, Integer modPart,
+			Date createTime, Integer hot, Integer isPos, Date openTime, TermStatus status, String account,
+			String luckNum, String openCounttime, Integer multPart, Integer maxPart, Date finishTime,
+			Integer memberBuyNum, String memberIp) {
+		this.product = product;
 		this.term = term;
 		this.totalPart = totalPart;
 		this.soldPart = soldPart;
@@ -123,12 +125,12 @@ public abstract class AbstractTerm implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Product getLuckProduct() {
-		return this.luckProduct;
+	public Product getProduct() {
+		return this.product;
 	}
 
-	public void setLuckProduct(Product luckProduct) {
-		this.luckProduct = luckProduct;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public String getTerm() {
