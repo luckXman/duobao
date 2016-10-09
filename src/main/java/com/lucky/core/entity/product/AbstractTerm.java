@@ -13,7 +13,7 @@ import com.lucky.core.utils.DateUtil;
  * @author MyEclipse Persistence Tools
  */
 
-public abstract class AbstractLuckTerm implements java.io.Serializable {
+public abstract class AbstractTerm implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,7 @@ public abstract class AbstractLuckTerm implements java.io.Serializable {
 	private Integer id; //
 
 	@JSONField(name = "product")
-	private LuckProduct luckProduct; // ��Ʒid
+	private Product luckProduct; // ��Ʒid
 
 	private String term; // ����
 
@@ -76,11 +76,11 @@ public abstract class AbstractLuckTerm implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public AbstractLuckTerm() {
+	public AbstractTerm() {
 	}
 
 	/** minimal constructor */
-	public AbstractLuckTerm(LuckProduct luckProduct, String term, Integer totalPart, Date createTime, TermStatus status, Integer multPart) {
+	public AbstractTerm(Product luckProduct, String term, Integer totalPart, Date createTime, TermStatus status, Integer multPart) {
 		this.luckProduct = luckProduct;
 		this.term = term;
 		this.totalPart = totalPart;
@@ -90,7 +90,7 @@ public abstract class AbstractLuckTerm implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AbstractLuckTerm(LuckProduct luckProduct, String term, Integer totalPart, Integer soldPart, Integer modPart, Date createTime, Integer hot,
+	public AbstractTerm(Product luckProduct, String term, Integer totalPart, Integer soldPart, Integer modPart, Date createTime, Integer hot,
 			Integer isPos, Date openTime, TermStatus status, String account, String luckNum, String openCounttime, Integer multPart,
 			Integer maxPart, Date finishTime, Integer memberBuyNum, String memberIp) {
 		this.luckProduct = luckProduct;
@@ -123,11 +123,11 @@ public abstract class AbstractLuckTerm implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public LuckProduct getLuckProduct() {
+	public Product getLuckProduct() {
 		return this.luckProduct;
 	}
 
-	public void setLuckProduct(LuckProduct luckProduct) {
+	public void setLuckProduct(Product luckProduct) {
 		this.luckProduct = luckProduct;
 	}
 

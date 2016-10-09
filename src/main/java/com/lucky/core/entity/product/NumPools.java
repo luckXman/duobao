@@ -9,7 +9,7 @@ import com.lucky.core.status.WinStatus;
  * 
  * @author MyEclipse Persistence Tools
  */
-public class LuckNumPools extends AbstractLuckNumPools implements
+public class NumPools extends AbstractNumPools implements
 		java.io.Serializable {
 
 	// Constructors
@@ -18,16 +18,16 @@ public class LuckNumPools extends AbstractLuckNumPools implements
 	private static final long serialVersionUID = 1L;
 
 	/** default constructor */
-	public LuckNumPools() {
+	public NumPools() {
 	}
 
 	/** minimal constructor */
-	public LuckNumPools(String luckNum, WinStatus winStatus) {
+	public NumPools(String luckNum, WinStatus winStatus) {
 		super(luckNum, winStatus);
 	}
 
 	/** full constructor */
-	public LuckNumPools(String luckNum, String account, Date createDateTime,
+	public NumPools(String luckNum, String account, Date createDateTime,
 			Date drawDateTime, WinStatus winStatus, Integer termId) {
 		super(luckNum, account, createDateTime, drawDateTime, winStatus, termId);
 	}

@@ -13,7 +13,7 @@ import com.lucky.core.status.WinStatus;
  * @author MyEclipse Persistence Tools
  */
 
-public abstract class AbstractLuckDrawRecord implements java.io.Serializable {
+public abstract class AbstractDrawRecord implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -63,16 +63,16 @@ public abstract class AbstractLuckDrawRecord implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public AbstractLuckDrawRecord() {
+	public AbstractDrawRecord() {
 	}
 
 	/** minimal constructor */
-	public AbstractLuckDrawRecord(Integer termId) {
+	public AbstractDrawRecord(Integer termId) {
 		this.termId = termId;
 	}
 
 	/** minimal constructor */
-	public AbstractLuckDrawRecord(String account, Date createDateTime, Integer numCount, String numStr, String termNo, String productName,
+	public AbstractDrawRecord(String account, Date createDateTime, Integer numCount, String numStr, String termNo, String productName,
 			Integer score, Integer productId) {
 		this.account = account;
 		this.createDateTime = createDateTime;
@@ -85,7 +85,7 @@ public abstract class AbstractLuckDrawRecord implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AbstractLuckDrawRecord(String account, Date createDateTime, Integer numCount, WinStatus winStatus, String ip, String ipAddr,
+	public AbstractDrawRecord(String account, Date createDateTime, Integer numCount, WinStatus winStatus, String ip, String ipAddr,
 			Integer termId, String numStr, Platform platform, String termNo, String productName, Integer score, Integer productId,String coverImage) {
 		this.account = account;
 		this.createDateTime = createDateTime;

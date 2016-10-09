@@ -11,7 +11,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @author MyEclipse Persistence Tools
  */
 
-public abstract class AbstractLuckProduct implements java.io.Serializable {
+public abstract class AbstractProduct implements java.io.Serializable {
 
 	/**
 	 * 
@@ -73,11 +73,11 @@ public abstract class AbstractLuckProduct implements java.io.Serializable {
 	private String shareContent; 
 
 	/** default constructor */
-	public AbstractLuckProduct() {
+	public AbstractProduct() {
 	}
 
 	/** minimal constructor */
-	public AbstractLuckProduct(ProductType productType, String name, Double money, Integer totalPart,
+	public AbstractProduct(ProductType productType, String name, Double money, Integer totalPart,
 			Integer multPart, Integer status, Date createTime) {
 		this.name = name;
 		this.money = money;
@@ -89,7 +89,7 @@ public abstract class AbstractLuckProduct implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AbstractLuckProduct(ProductType productType, String name, String title, String keywords, String description,
+	public AbstractProduct(ProductType productType, String name, String title, String keywords, String description,
 			String detailUrl, Double money, Integer totalPart, Integer multPart, Integer hot, Integer isPos,
 			Integer status, String subtitle, String picArr, Date createTime, Integer maxPart) {
 		this.productType = productType;

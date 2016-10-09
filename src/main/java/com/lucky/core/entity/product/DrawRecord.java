@@ -12,7 +12,7 @@ import com.lucky.core.utils.StringUtil;
  * 
  * @author MyEclipse Persistence Tools
  */
-public class LuckDrawRecord extends AbstractLuckDrawRecord implements java.io.Serializable {
+public class DrawRecord extends AbstractDrawRecord implements java.io.Serializable {
 
 	private String status;
 	
@@ -28,21 +28,21 @@ public class LuckDrawRecord extends AbstractLuckDrawRecord implements java.io.Se
 	private static final long serialVersionUID = 1L;
 
 	/** default constructor */
-	public LuckDrawRecord() {
+	public DrawRecord() {
 	}
 
 	/** minimal constructor */
-	public LuckDrawRecord(Integer termId) {
+	public DrawRecord(Integer termId) {
 		super(termId);
 	}
 
 	/** minimal constructor */
-	public LuckDrawRecord(String account, Date createDateTime, Integer numCount, String numStr, String termNo, String productName,Integer score,Integer productId) {
+	public DrawRecord(String account, Date createDateTime, Integer numCount, String numStr, String termNo, String productName,Integer score,Integer productId) {
 		super(account, createDateTime, numCount, numStr, termNo, productName,score,productId);
 	}
 
 	/** full constructor */
-	public LuckDrawRecord(String account, Date createDateTime, Integer numCount, WinStatus winStatus, String ip, String ipAddr, Integer termId,
+	public DrawRecord(String account, Date createDateTime, Integer numCount, WinStatus winStatus, String ip, String ipAddr, Integer termId,
 			String numStr, Platform platform, String termNo, String productName,Integer score,Integer productId,String coverImage) {
 		super(account, createDateTime, numCount, winStatus, ip, ipAddr, termId, numStr, platform, termNo, productName,score,productId,coverImage);
 	}

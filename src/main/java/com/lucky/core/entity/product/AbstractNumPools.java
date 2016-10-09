@@ -12,7 +12,7 @@ import com.lucky.core.status.WinStatus;
  * @author MyEclipse Persistence Tools
  */
 
-public abstract class AbstractLuckNumPools implements java.io.Serializable {
+public abstract class AbstractNumPools implements java.io.Serializable {
 
 	// Fields
 	private static final long serialVersionUID = 1L;
@@ -28,17 +28,17 @@ public abstract class AbstractLuckNumPools implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public AbstractLuckNumPools() {
+	public AbstractNumPools() {
 	}
 
 	/** minimal constructor */
-	public AbstractLuckNumPools(String luckNum, WinStatus winStatus) {
+	public AbstractNumPools(String luckNum, WinStatus winStatus) {
 		this.luckNum = luckNum;
 		this.winStatus = winStatus;
 	}
 
 	/** full constructor */
-	public AbstractLuckNumPools(String luckNum, String account,
+	public AbstractNumPools(String luckNum, String account,
 			Date createDateTime, Date drawDateTime, WinStatus winStatus, Integer termId) {
 		this.luckNum = luckNum;
 		this.account = account;
