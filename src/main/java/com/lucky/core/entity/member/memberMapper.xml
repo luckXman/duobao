@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lucky.core.entity.member.MemberDao">
-	<select id="getMemberById" parameterType="int" resultType = "com.lucky.core.entity.member.Member">
+<mapper namespace="memberDao">
+	<select id="getMemberById" parameterType="int" resultType = "member">
 		select * from member where id=#{id}
 	</select>
 	<select id="getAllMember" resultType="java.util.List">
 		select * from member order by id desc
 	</select>
 	
-	<insert id="saveMember" parameterType="com.lucky.core.entity.member.Member" flushCache="true">
+	<insert id="saveMember" parameterType="member" flushCache="true">
 		insert into member (account,password,nick_name,register_Date_Time) 
 					values (#{account},#{password},#{nickName},#{registerDateTime})
 	</insert>
@@ -17,7 +17,7 @@
 		delete from member where id=#{id}
 	</delete>
 	
-	<resultMap type="com.lucky.core.entity.member.Member" id="memberResultMap">
+	<resultMap type="member" id="memberResultMap">
 		<id property="id" column="id"/>
 		<result property="account" column="ACCOUNT"/>
 		<result property="nickName" column="NICK_NAME"/>
@@ -39,5 +39,7 @@
 		<result property="isVIP" column="IS_VIP"/>
 		<result property="isCharge" column="IS_CHARGE"/>
 		<result property="isVirtualAccount" column="IS_VIRTUAL_ACCOUNT"/>
+		<collection property="addresses" ofType="addres" select="getAddressesByMemberId"/>
 	</resultMap>
+	
 </mapper>

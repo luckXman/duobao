@@ -12,6 +12,7 @@
     http://www.springframework.org/schema/aop    
     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">  
 <!-- 配置数据源-->  
+	
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 	    <property name="driverClassName">  
 	        <value>org.gjt.mm.mysql.Driver</value>  
@@ -23,7 +24,7 @@
 	        <value>root</value>  
 	    </property>  
 	    <property name="password">  
-	        <value>123456</value>  
+	        <value></value>  
 	    </property>  
 	</bean>  
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  

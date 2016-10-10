@@ -16,7 +16,7 @@ public class MybatisTest {
 		System.out.println(is);
 		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(is);
 		SqlSession session = sessionFactory.openSession();
-		String statement = "memberMapper.insertMember";
+		String statement = "memberMapper.saveMember";
 
 		Member member = new Member();
 		member.setAccount("testone2f");
