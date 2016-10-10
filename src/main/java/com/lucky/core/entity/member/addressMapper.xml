@@ -11,8 +11,8 @@
 	</select>
 	
 	<insert id="insertAddress" parameterType="address">
-		insert into Address (account,password,nick_name,register_Date_Time) 
-					values (#{account},#{password},#{nickName},#{registerDateTime})
+		insert into Address (member_id,name,province,city,area,address,telephone,email,alias,zipCode,createTime,isDefault) 
+					values (#{memberId},#{name},#{province},#{city},#{area},#{address},#{telephone},#{email},#{alias},#{zipCode},#{createTime},#{isDefault})
 	</insert>
 	
 	<delete id="deleteAddressById" parameterType="int">
