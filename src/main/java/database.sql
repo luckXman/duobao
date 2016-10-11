@@ -22,22 +22,6 @@ CREATE TABLE member (
   UNIQUE KEY ACCOUNT (ACCOUNT)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
-<resultMap type="address" id="addressResultMap">
-		<id property="id" column="id"/>
-		<result property="memberId" column="MEMBER_ID"/>
-		<result property="name" column="NAME"/>
-		<result property="province" column="PROVINCE"/>
-		<result property="city" column="CITY"/>
-		<result property="area" column="AREA"/>
-		<result property="address" column="ADDRESS"/>
-		<result property="telephone" column="TELEPHONE"/>
-		<result property="email" column="EMAIL"/>
-		<result property="alias" column="ALIAS"/>
-		<result property="zipCode" column="ZIP_CODE"/>
-		<result property="createTime" column="CREATE_TIME"/>
-		<result property="isDefault" column="IS_DEFAULT"/>		
-	</resultMap>
-	
 CREATE TABLE address(
 	ID INT(11) NOT NULL AUTO_INCREMENT,
 	MEMBER_ID INT(11) NOT NULL,
@@ -52,5 +36,6 @@ CREATE TABLE address(
 	ZIP_CODE VARCHAR(10),
 	CREATE_TIME TIMESTAMP NOT NULL,
 	IS_DEFAULT INT(2) NOT NULL,
-	FOREIGN KEY(MEMBER_ID)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+	PRIMARY KEY(ID),
+	FOREIGN KEY(MEMBER_ID) REFERENCES member(id)
+)

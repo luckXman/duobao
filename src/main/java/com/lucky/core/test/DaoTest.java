@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.lucky.core.entity.member.Address;
+import com.lucky.core.entity.member.AddressDao;
 import com.lucky.core.entity.member.Member;
 import com.lucky.core.entity.member.MemberDao;
 
@@ -23,7 +25,17 @@ public class DaoTest {
 		ctx = new ClassPathXmlApplicationContext("springConfig.xml");
 	}
 
+	
 	@Test
+	public void saveAddressTest(){
+		AddressDao dao = (AddressDao) ctx.getBean("addressDao");
+		List<Address> addresses = dao.getAllAddress();
+		System.out.println(addresses.size());
+		
+				
+	}
+	
+	//@Test
 	public void springTest() {
 		MemberDao dao = (MemberDao) ctx.getBean("memberDao");
 		/*System.out.println(dao.getClass().getName());

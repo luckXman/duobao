@@ -10,7 +10,11 @@
 		select * from address where member_id=#{id}
 	</select>
 	
-	<insert id="insertAddress" parameterType="address">
+	<select id="getAllAddress" resultType = "address">
+		select * from address order by id desc
+	</select>
+	
+	<insert id="saveAddress" parameterType="address">
 		insert into Address (member_id,name,province,city,area,address,telephone,email,alias,zipCode,createTime,isDefault) 
 					values (#{memberId},#{name},#{province},#{city},#{area},#{address},#{telephone},#{email},#{alias},#{zipCode},#{createTime},#{isDefault})
 	</insert>

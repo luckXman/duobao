@@ -34,5 +34,18 @@
 	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
 	    <property name="mapperInterface" value="com.lucky.core.entity.member.MemberDao"></property>  
 	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
-	</bean>  
+	</bean>
+	<bean id="addressDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.lucky.core.entity.member.AddressDao"></property>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </beans>
