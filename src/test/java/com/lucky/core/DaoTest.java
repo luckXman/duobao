@@ -15,24 +15,42 @@ import com.lucky.core.entity.member.Address;
 import com.lucky.core.entity.member.AddressDao;
 import com.lucky.core.entity.member.Member;
 import com.lucky.core.entity.member.MemberDao;
+import com.lucky.core.status.CommonStatus;
 
 public class DaoTest {
 	public static ApplicationContext ctx = null;
 
 	@Before
 	public void init() {
-		System.out.println("-----------------------init----------------------------------");
 		ctx = new ClassPathXmlApplicationContext("springConfig.xml");
+		System.out.println("-----------------------init----------------------------------");
 	}
 
 	
 	@Test
 	public void saveAddressTest(){
 		AddressDao dao = (AddressDao) ctx.getBean("addressDao");
+		MemberDao mDao = (MemberDao) ctx.getBean("memberDao");
 		List<Address> addresses = dao.getAllAddress();
 		System.out.println(addresses.size());
+		Member member = mDao.getMemberById(6);
+		System.out.println(member.toString());
 		
-				
+		Address address = new Address();
+		address.setAddress("address");
+		address.setAlias("alias");
+		address.setArea("area");
+		address.setCity("city");
+		address.setCreateTime(new Date());
+		address.setEmail("");
+		address.setIsDefault(CommonStatus.NO.getValue());
+		address.setMember(member);
+		address.setName("name");
+		address.setProvince("pr0");
+		address.setTelephone("telephone");
+		address.setZipCode("zipCode");
+		dao.saveAddress(address);
+		System.out.println(address);
 	}
 	
 	//@Test

@@ -7,5 +7,5 @@ public interface AddressDao {
 	public void saveAddress(Address address);
 	public void deleteAddressById(int id);
 	public List<Address> getAllAddress();
-	public List<Address> getAddressesByMemberId();	
+	public List<Address> getAddressesByMemberId(int id);	
 }

@@ -173,4 +173,11 @@ public abstract class AbstractAddress implements java.io.Serializable {
 		this.isDefault = isDefault;
 	}
 
+	@Override
+	public String toString() {
+		return "AbstractAddress [id=" + id + ", memberId=" + memberId + ", name=" + name + ", province=" + province
+				+ ", city=" + city + ", area=" + area + ", address=" + address + ", telephone=" + telephone + ", email="
+				+ email + ", alias=" + alias + ", zipCode=" + zipCode + ", createTime=" + createTime + ", isDefault="
+				+ isDefault + "]";
+	}
 }
