@@ -23,7 +23,7 @@ public class DrawRecord extends AbstractDrawRecord implements java.io.Serializab
 	private String endTime;
 
 	@JSONField(serialize = false)
-	private int winStatusValue;// -1ȫ�� 1������ 2�ѿ���
+	private int winStatusValue;//
 	// Constructors
 	private static final long serialVersionUID = 1L;
 

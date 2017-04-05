@@ -3,6 +3,7 @@ package com.lucky.core.entity.product;
 import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.lucky.core.status.ProductType;
 
 /**
  * AbstractLuckProduct entity provides the base persistence definition of the

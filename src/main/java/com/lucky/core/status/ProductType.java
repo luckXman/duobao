@@ -1,17 +1,18 @@
 package com.lucky.core.status;
 
-public enum WinStatus implements IntEnum<WinStatus> {
-	NOT_OPEN(0, "未开奖"), NOT_AWARD(1, "未中奖"), AWARD(1, "已中奖");
+public enum ProductType implements IntEnum<ProductType> {
+	CARD(1002, "充值卡"), NOT_AWARD(1, "未中奖"), AWARD(1, "已中奖");
+	
 	private int index;
 	private String name;
 
-	private WinStatus(int index, String name) {
+	private ProductType(int index, String name) {
 		this.index = index;
 		this.name = name;
 	}
 
 	public static String fromIndex(int index) {
-		for (WinStatus p : WinStatus.values()) {
+		for (ProductType p : ProductType.values()) {
 			if (index == p.getValue())
 				return p.name;
 		}
