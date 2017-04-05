@@ -11,10 +11,10 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.lucky.core.dao.member.AddressDao;
+import com.lucky.core.dao.member.MemberDao;
 import com.lucky.core.entity.member.Address;
-import com.lucky.core.entity.member.AddressDao;
 import com.lucky.core.entity.member.Member;
-import com.lucky.core.entity.member.MemberDao;
 import com.lucky.core.status.CommonStatus;
 
 public class DaoTest {
