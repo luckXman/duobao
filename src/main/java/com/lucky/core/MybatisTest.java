@@ -17,9 +17,8 @@ public class MybatisTest {
 		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(is);
 		SqlSession session = sessionFactory.openSession();
 		String statement = "memberMapper.saveMember";
-
 		Member member = new Member();
-		member.setAccount("testone2f");
+		member.setAccount("testodfne2f");
 		member.setPassword("1111113f");
 		member.setNickName("哈哈d");
 		member.setRegisterDateTime(new Date());

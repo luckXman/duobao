@@ -1,7 +1,7 @@
 package com.lucky.core.status;
 
 public enum CommonStatus implements IntEnum<CommonStatus> {
-	ALL(0, "no"),NO(1, "no"), YES(2, "yes");
+	ALL(0, "all"),NO(1, "no"), YES(2, "yes");
 	private int index;
 	private String name;
 

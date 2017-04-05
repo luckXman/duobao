@@ -49,8 +49,10 @@ public class DaoTest {
 		address.setProvince("pr0");
 		address.setTelephone("telephone");
 		address.setZipCode("zipCode");
-		dao.saveAddress(address);
-		System.out.println(address);
+		int id = dao.saveAddress(address);
+		Address add = dao.getAddressById(id);
+		System.out.println("save:"+add);
+		//System.out.println(address);
 	}
 	
 	//@Test
