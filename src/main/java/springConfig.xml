@@ -18,7 +18,7 @@
 	        <value>org.gjt.mm.mysql.Driver</value>  
 	    </property>  
 	    <property name="url">  
-	        <value>jdbc:mysql://localhost:3306/lucky?useUnicode=true&amp;characterEncoding=UTF-8</value>  
+	        <value>jdbc:mysql://localhost:3306/duobao?useUnicode=true&amp;characterEncoding=UTF-8</value>  
 	    </property>  
 	    <property name="username">  
 	        <value>root</value>  
@@ -32,11 +32,11 @@
 	    <property name="configLocation" value="classpath:mybatisConfig.xml"></property>  
 	</bean>  
 	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
-	    <property name="mapperInterface" value="com.lucky.core.entity.member.MemberDao"></property>  
+	    <property name="mapperInterface" value="com.duobao.core.entity.member.MemberDao"></property>  
 	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  
 	</bean>
 	<bean id="addressDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.lucky.core.entity.member.AddressDao"></property>
+		<property name="mapperInterface" value="com.duobao.core.entity.member.AddressDao"></property>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 	

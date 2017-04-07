@@ -12,7 +12,7 @@
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">  
 	<!-- 配置数据源-->  
-	<bean id="product" class="com.lucky.core.entity.product.Product">
+	<bean id="product" class="com.duobao.core.entity.product.Product">
 		<property name="id"><value>123</value></property>
 		<property name="name"><value>nameTest</value></property>
 		<property name="title"><value>titleTest</value></property>

@@ -2,11 +2,11 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.lucky.core.entity.member.Member" alias="member"/>
-		<typeAlias type="com.lucky.core.entity.member.Address" alias="address"/>
+		<typeAlias type="com.duobao.core.entity.member.Member" alias="member"/>
+		<typeAlias type="com.duobao.core.entity.member.Address" alias="address"/>
 	</typeAliases>
 	<mappers>
-		<mapper resource="com/lucky/core/entity/member/memberMapper.xml" />
-		<mapper resource="com/lucky/core/entity/member/addressMapper.xml" />
+		<mapper resource="com/duobao/core/entity/member/memberMapper.xml" />
+		<mapper resource="com/duobao/core/entity/member/addressMapper.xml" />
 	</mappers>
 </configuration>
