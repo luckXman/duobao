@@ -11,7 +11,7 @@ import com.duobao.core.utils.StringUtil;
  * 
  * @author MyEclipse Persistence Tools
  */
-public class Term extends AbstractTerm implements java.io.Serializable {
+public class TermEntity extends AbstractTerm implements java.io.Serializable {
 
 	// Constructors
 	private static final long serialVersionUID = 1L; 
@@ -23,16 +23,16 @@ public class Term extends AbstractTerm implements java.io.Serializable {
 	private String onsellTerm;
 
 	/** default constructor */
-	public Term() {
+	public TermEntity() {
 	}
 
 	/** minimal constructor */
-	public Term(Product luckProduct, String term, Integer totalPart, Date createTime, TermStatus status, Integer multPart) {
+	public TermEntity(ProductEntity luckProduct, String term, Integer totalPart, Date createTime, TermStatus status, Integer multPart) {
 		super(luckProduct, term, totalPart, createTime, status, multPart);
 	}
 
 	/** full constructor */
-	public Term(Product luckProduct, String term, Integer totalPart, Integer soldPart, Integer modPart, Date createTime, Integer hot,
+	public TermEntity(ProductEntity luckProduct, String term, Integer totalPart, Integer soldPart, Integer modPart, Date createTime, Integer hot,
 			Integer isPos, Date openTime, TermStatus status, String account, String luckNum, String openCounttime, Integer multPart,
 			Integer maxPart, Date finishTime, Integer memberBuyNum, String memberIp) {
 		super(luckProduct, term, totalPart, soldPart, modPart, createTime, hot, isPos, openTime, status, account, luckNum, openCounttime, multPart,

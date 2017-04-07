@@ -1,11 +1,15 @@
-package com.duobao.core.entity.product;
+package com.duobao.core.entity.product.vo;
 
 import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.duobao.core.utils.StringUtil;
-
-public class UserDrawRecord implements java.io.Serializable {
+/**
+ * 页面模形
+ * @author wb
+ *
+ */
+public class UserDrawRecordVO implements java.io.Serializable {
 
 	// d.account,d.member_id,d.num_count,d.win_status,d.cover_image,d.term_no,d.product_id,d.product_name,
 	// t.account as win_account,t.total_part,t.mod_part

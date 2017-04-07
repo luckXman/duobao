@@ -9,7 +9,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  * 
  * @author MyEclipse Persistence Tools
  */
-public class Address extends AbstractAddress implements java.io.Serializable {
+public class AddressEntity extends AbstractAddress implements java.io.Serializable {
 
 	// Constructors
 	private static final long serialVersionUID = 1L;
@@ -17,20 +17,20 @@ public class Address extends AbstractAddress implements java.io.Serializable {
 	private String fullAddress;
 
 	// 多对一映射
-	private Member member;
+	private MemberEntity member;
 
 	/** default constructor */
-	public Address() {
+	public AddressEntity() {
 	}
 
 	/** minimal constructor */
-	public Address(Integer account, String name, String province, String city, String area, String address,
+	public AddressEntity(Integer account, String name, String province, String city, String area, String address,
 			String telephone, Integer isDefault) {
 		super(account, name, province, city, area, address, telephone, isDefault);
 	}
 
 	/** full constructor */
-	public Address(Integer account, String name, String province, String city, String area, String address,
+	public AddressEntity(Integer account, String name, String province, String city, String area, String address,
 			String telephone, String email, String alias, String zipCode, Date createTime, Integer isDefault) {
 		super(account, name, province, city, area, address, telephone, email, alias, zipCode, createTime, isDefault);
 	}
@@ -40,11 +40,11 @@ public class Address extends AbstractAddress implements java.io.Serializable {
 		return fullAddress;
 	}
 
-	public Member getMember() {
+	public MemberEntity getMember() {
 		return member;
 	}
 
-	public void setMember(Member member) {
+	public void setMember(MemberEntity member) {
 		this.member = member;
 	}
 

@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.duobao.core.entity.member.Member;
+import com.duobao.core.entity.member.MemberEntity;
 
 public class MybatisTest {
 	public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class MybatisTest {
 		SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(is);
 		SqlSession session = sessionFactory.openSession();
 		String statement = "memberMapper.saveMember";
-		Member member = new Member();
+		MemberEntity member = new MemberEntity();
 		member.setAccount("testodfne2f");
 		member.setPassword("1111113f");
 		member.setNickName("哈哈d");

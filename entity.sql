@@ -1,243 +1,107 @@
 /*********************************************ADDRESS***************************************************************/
-Create table
-create table ADDRESS
-(
-  id          NUMBER not null,
-  account     VARCHAR2(80) not null,
-  name        VARCHAR2(20) not null,
-  province    VARCHAR2(40) not null,
-  city        VARCHAR2(40) not null,
-  area        VARCHAR2(40) not null,
-  address     VARCHAR2(400) not null,
-  telephone   VARCHAR2(20) not null,
-  email       VARCHAR2(100),
-  alias       VARCHAR2(20),
-  zip_code    VARCHAR2(20),
-  create_time TIMESTAMP(6),
-  is_default  NUMBER(1) not null
-)
-tablespace CLWEB_DATA
-  pctfree 10
-  initrans 1
-  maxtrans 255
-  storage
-  (
-    initial 64
-    next 8
-    minextents 1
-    maxextents unlimited
-  );
--- Add comments to the table 
-comment on table ADDRESS
-  is '收获地址表';
--- Add comments to the columns 
-comment on column ADDRESS.account
-  is '账户';
-comment on column ADDRESS.name
-  is '收货人';
-comment on column ADDRESS.province
-  is '省份';
-comment on column ADDRESS.city
-  is '城市';
-comment on column ADDRESS.area
-  is '区';
-comment on column ADDRESS.address
-  is '详细地址';
-comment on column ADDRESS.telephone
-  is '手机';
-comment on column ADDRESS.email
-  is 'email';
-comment on column ADDRESS.alias
-  is '别名';
-comment on column ADDRESS.zip_code
-  is '邮编';
-comment on column ADDRESS.create_time
-  is '创建时间';
-comment on column ADDRESS.is_default
-  is '是否默认';
--- Create/Recreate primary, unique and foreign key constraints 
-alter table ADDRESS
-  add constraint PK_ADDRESS_ID primary key (ID)
-  using index 
-  tablespace CLWEB_DATA
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
--- Grant/Revoke object privileges 
-grant select on ADDRESS to CLWEB_USER_RO;
+CREATE TABLE address(
+	ID INT(11) primary key NOT NULL AUTO_INCREMENT,
+	MEMBER_ID INT(11) NOT NULL,
+	NAME VARCHAR(5) NOT NULL,
+	PROVINCE VARCHAR(5) NOT NULL,
+	CITY VARCHAR(10) NOT NULL,
+	AREA VARCHAR(40) NOT NULL,
+	ADDRESS VARCHAR(40) NOT NULL,
+	TELEPHONE VARCHAR(16) NOT NULL,
+	EMAIL VARCHAR(60),
+	ALIAS VARCHAR(20),
+	ZIP_CODE VARCHAR(10),
+	CREATE_TIME TIMESTAMP NOT NULL,
+	IS_DEFAULT INT(2) NOT NULL,
+	FOREIGN KEY(MEMBER_ID)
+);
+
+/*********************************************MEMBER***************************************************************/
+CREATE TABLE MEMBER(
+	ID INT(11) primary key NOT NULL AUTO_INCREMENT,
+	ACCOUNT VARCHAR(20) NOT NULL,
+	NICK_NAME VARCHAR(5) NOT NULL,
+	NAME VARCHAR(5) NOT NULL,
+	CERT_TYPE VARCHAR(10) NOT NULL,
+	CERT_NO VARCHAR(40) NOT NULL,
+	PASSWORD VARCHAR(40) NOT NULL,
+	EMAIL VARCHAR(16) NOT NULL,
+	MOBILE VARCHAR(60),
+	STATUS INT(20),
+	REGISTER_DATE_TIME TIMESTAMP(10),
+	LAST_LOGIN_DATE_TIME TIMESTAMP NOT NULL,
+	EXPRERIENCE INT(11) NOT NULL,
+	SOURCE_ID INT(11) NOT NULL,
+	PROVIDER VARCHAR(20) NOT NULL,
+	PICTURE VARCHAR(120) NOT NULL,
+	IS_MOBILE_AUTHED INT(2) NOT NULL,
+	IS_EMAIL_AUTHED INT(2) NOT NULL,
+	IS_VIP INT(2) NOT NULL,
+	IS_CHARGE INT(2) NOT NULL,
+	IS_VIRTUAL_ACCOUNT INT(2) NOT NULL,
+	FOREIGN KEY(ID)
+);
 
 /*********************************************DRAW_RECORD***************************************************************/
 -- Create table
 create table DRAW_RECORD
 (
-  id               NUMBER(11) not null,
-  account          VARCHAR2(40) not null,
-  create_date_time TIMESTAMP(6) not null,
-  num_count        NUMBER(8) not null,
-  win_status       NUMBER(2),
-  ip               VARCHAR2(40),
-  ip_addr          VARCHAR2(120),
-  term_id          NUMBER(10),
-  num_str          CLOB not null,
-  platform         NUMBER(2) not null,
-  term_no          VARCHAR2(20),
-  product_name     VARCHAR2(40),
-  score            NUMBER,
-  product_id       NUMBER,
-  member_id        NUMBER,
-  cover_image      VARCHAR2(400)
+  id               INT(11) primary key  AUTO_INCREMENT ,
+  account          VARCHAR(40) not null COMMENT '会员帐号',
+  create_date_time TIMESTAMP(6) not null COMMENT '创建时间',
+  num_count        INT(8) not null COMMENT '号码个数',
+  win_status       INT(2) COMMENT '中奖状态',
+  ip               VARCHAR(40) COMMENT '会员帐号',
+  ip_addr          VARCHAR(120) COMMENT 'ip直实地址',
+  term_id          INT(10) COMMENT '会员帐号',
+  num_str          TEXT not null COMMENT '号码内容',
+  platform         INT(2) not null COMMENT '参与平台',
+  term_no          VARCHAR(20) COMMENT '期数号',
+  product_name     VARCHAR(40) COMMENT '产品名称',
+  score            INT(11) COMMENT '消耗积',
+  product_id       INT(11) COMMENT '产品ID',
+  member_id        INT(11) COMMENT '会员Id',
+  cover_image      VARCHAR(400) COMMENT '产品图片地址'
 )
-tablespace CLWEB_DATA
-  pctfree 10
-  initrans 1
-  maxtrans 255
-  storage
-  (
-    initial 64
-    next 8
-    minextents 1
-    maxextents unlimited
-  );
--- Add comments to the columns 
-comment on column DRAW_RECORD.account
-  is '会员帐号';
-comment on column DRAW_RECORD.create_date_time
-  is '创建时间';
-comment on column DRAW_RECORD.num_count
-  is '号码个数';
-comment on column DRAW_RECORD.win_status
-  is '中奖状态';
-comment on column DRAW_RECORD.ip
-  is 'ip';
-comment on column DRAW_RECORD.ip_addr
-  is 'ip直实地址';
-comment on column DRAW_RECORD.num_str
-  is '号码内容';
-comment on column DRAW_RECORD.platform
-  is '参与平台';
-comment on column DRAW_RECORD.term_no
-  is '期数号';
-comment on column DRAW_RECORD.product_name
-  is '产品名称';
-comment on column DRAW_RECORD.score
-  is '消耗积分';
-comment on column DRAW_RECORD.product_id
-  is '产品ID';
--- Create/Recreate primary, unique and foreign key constraints 
-alter table DRAW_RECORD
-  add constraint PK_DRAW_RECORD primary key (ID)
-  using index 
-  tablespace CLWEB_DATA
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
--- Grant/Revoke object privileges 
-grant select on DRAW_RECORD to CLWEB_USER_RO;
-
 /*********************************************NUM_POOLS***************************************************************/
 -- Create table
-create table NUM_POOLS
-(
-  id               NUMBER(11) not null,
-  num         VARCHAR2(8) not null,
-  account          VARCHAR2(40),
+create table NUM_POOLS(
+  id               INT(11) primary key  AUTO_INCREMENT,
+  num         	   VARCHAR(8) not null,
+  account          VARCHAR(40),
   create_date_time TIMESTAMP(6),
   draw_date_time   TIMESTAMP(6),
-  win_status       NUMBER(2) not null,
-  term_id          NUMBER(10)
+  win_status       INT(2) not null,
+  term_id          VARCHAR(20)
 )
-tablespace CLWEB_DATA
-  pctfree 10
-  initrans 1
-  maxtrans 255
-  storage
-  (
-    initial 64
-    next 8
-    minextents 1
-    maxextents unlimited
-  );
--- Add comments to the columns 
-comment on column NUM_POOLS.num
-  is '幸运号';
-comment on column NUM_POOLS.account
-  is '用户名';
-comment on column NUM_POOLS.create_date_time
-  is '创建时间';
-comment on column NUM_POOLS.draw_date_time
-  is '抽取时间';
-comment on column NUM_POOLS.win_status
-  is '中奖状态';
--- Create/Recreate primary, unique and foreign key constraints 
-alter table NUM_POOLS
-  add constraint PK_NUM_POOLS primary key (ID)
-  using index 
-  tablespace CLWEB_DATA
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
--- Grant/Revoke object privileges 
-grant select on NUM_POOLS to CLWEB_USER_RO;
-
 /*********************************************PRODUCT***************************************************************/
 
 -- Create table
 create table PRODUCT
 (
-  id            NUMBER not null,
-  type_id       NUMBER not null,
-  name          VARCHAR2(40) not null,
-  title         VARCHAR2(400),
-  keywords      VARCHAR2(100),
-  description   VARCHAR2(200),
-  detail_url    VARCHAR2(100),
-  money         NUMBER(10,2) not null,
-  total_part    NUMBER(7) not null,
-  mult_part     NUMBER(7),
-  hot           NUMBER,
-  is_pos        NUMBER(1),
-  status        NUMBER(1) not null,
-  subtitle      VARCHAR2(40),
-  pic_arr       VARCHAR2(2000),
+  id            INT(11) primary key  AUTO_INCREMENT,
+  type_id       INT(11) not null,
+  name          VARCHAR(40) not null,
+  title         VARCHAR(400),
+  keywords      VARCHAR(100),
+  description   VARCHAR(200),
+  detail_url    VARCHAR(100),
+  money         INT(10,2) not null,
+  total_part    INT(7) not null,
+  mult_part     INT(7),
+  hot           INT,
+  is_pos        INT(1),
+  status        INT(1) not null,
+  subtitle      VARCHAR(40),
+  pic_arr       VARCHAR(2000),
   create_time   TIMESTAMP(6) not null,
-  max_part      NUMBER(7),
-  cover_image   VARCHAR2(400),
-  per_score     NUMBER(7) default 2000,
-  share_title   VARCHAR2(40),
-  share_content VARCHAR2(200)
+  max_part      INT(7),
+  cover_image   VARCHAR(400),
+  per_score     INT(7) default 2000,
+  share_title   VARCHAR(40),
+  share_content VARCHAR(200)
 )
-tablespace CLWEB_DATA
-  pctfree 10
-  initrans 1
-  maxtrans 255
-  storage
-  (
-    initial 64
-    next 8
-    minextents 1
-    maxextents unlimited
-  );
+
 -- Add comments to the table 
 comment on table PRODUCT
   is '产品表';
@@ -276,63 +140,34 @@ comment on column PRODUCT.max_part
   is '限购份数';
 comment on column PRODUCT.cover_image
   is '封面图片';
--- Create/Recreate primary, unique and foreign key constraints 
-alter table PRODUCT
-  add constraint PK_LUXK_PRODUCT_ID primary key (ID)
-  using index 
-  tablespace CLWEB_DATA
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
--- Grant/Revoke object privileges 
-grant select on PRODUCT to CLWEB_USER_RO;
-
 /*********************************************TERM***************************************************************/
 
 -- Create table
 create table TERM
 (
-  id             NUMBER not null,
-  term           VARCHAR2(20) not null,
-  product_id     NUMBER not null,
-  total_part     NUMBER(7) not null,
-  sold_part      NUMBER(7),
-  mod_part       NUMBER(7),
+  id             INT not null,
+  term           VARCHAR(20) not null,
+  product_id     INT not null,
+  total_part     INT(7) not null,
+  sold_part      INT(7),
+  mod_part       INT(7),
   create_time    TIMESTAMP(6) not null,
-  hot            NUMBER,
-  is_pos         NUMBER(1),
+  hot            INT,
+  is_pos         INT(1),
   open_time      TIMESTAMP(6),
-  status         NUMBER(1) not null,
-  account        VARCHAR2(80),
-  num       VARCHAR2(20),
-  open_counttime VARCHAR2(20),
-  mult_part      NUMBER(7),
-  max_part       NUMBER(7),
+  status         INT(1) not null,
+  account        VARCHAR(80),
+  num       VARCHAR(20),
+  open_counttime VARCHAR(20),
+  mult_part      INT(7),
+  max_part       INT(7),
   finish_time    TIMESTAMP(6),
-  member_buy_num NUMBER,
-  member_ip      VARCHAR2(120),
-  member_id      NUMBER,
-  per_score      NUMBER(7) default 2000
+  member_buy_num INT,
+  member_ip      VARCHAR(120),
+  member_id      INT,
+  per_score      INT(7) default 2000
 )
-tablespace CLWEB_DATA
-  pctfree 10
-  initrans 1
-  maxtrans 255
-  storage
-  (
-    initial 64
-    next 8
-    minextents 1
-    maxextents unlimited
-  );
--- Add comments to the table 
+
 comment on table TERM
   is '期数';
 -- Add comments to the columns 
@@ -375,22 +210,3 @@ comment on column TERM.member_ip
 comment on column TERM.member_id
   is '中奖人id';
 -- Create/Recreate primary, unique and foreign key constraints 
-alter table TERM
-  add constraint PK_TERM_ID primary key (ID)
-  using index 
-  tablespace CLWEB_DATA
-  pctfree 10
-  initrans 2
-  maxtrans 255
-  storage
-  (
-    initial 64K
-    next 1M
-    minextents 1
-    maxextents unlimited
-  );
-alter table TERM
-  add constraint FK_TERM_PRODUCT_ID foreign key (PRODUCT_ID)
-  references PRODUCT (ID) on delete cascade;
--- Grant/Revoke object privileges 
-grant select on TERM to CLWEB_USER_RO;

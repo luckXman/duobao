@@ -30,7 +30,10 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
 	    <property name="dataSource" ref="dataSource" />  
 	    <property name="configLocation" value="classpath:mybatisConfig.xml"></property>  
-	</bean>  
+	</bean>	
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">   
+          <constructor-arg index="0" ref="sqlSessionFactory" />   
+    </bean>
 	<bean id="memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">  
 	    <property name="mapperInterface" value="com.duobao.core.entity.member.MemberDao"></property>  
 	    <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>  

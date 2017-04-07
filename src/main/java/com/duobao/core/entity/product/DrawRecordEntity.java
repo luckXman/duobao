@@ -12,7 +12,7 @@ import com.duobao.core.utils.StringUtil;
  * 
  * @author MyEclipse Persistence Tools
  */
-public class DrawRecord extends AbstractDrawRecord implements java.io.Serializable {
+public class DrawRecordEntity extends AbstractDrawRecord implements java.io.Serializable {
 
 	private String status;
 	
@@ -28,21 +28,21 @@ public class DrawRecord extends AbstractDrawRecord implements java.io.Serializab
 	private static final long serialVersionUID = 1L;
 
 	/** default constructor */
-	public DrawRecord() {
+	public DrawRecordEntity() {
 	}
 
 	/** minimal constructor */
-	public DrawRecord(Integer termId) {
+	public DrawRecordEntity(Integer termId) {
 		super(termId);
 	}
 
 	/** minimal constructor */
-	public DrawRecord(String account, Date createDateTime, Integer numCount, String numStr, String termNo, String productName,Integer score,Integer productId) {
+	public DrawRecordEntity(String account, Date createDateTime, Integer numCount, String numStr, String termNo, String productName,Integer score,Integer productId) {
 		super(account, createDateTime, numCount, numStr, termNo, productName,score,productId);
 	}
 
 	/** full constructor */
-	public DrawRecord(String account, Date createDateTime, Integer numCount, WinStatus winStatus, String ip, String ipAddr, Integer termId,
+	public DrawRecordEntity(String account, Date createDateTime, Integer numCount, WinStatus winStatus, String ip, String ipAddr, Integer termId,
 			String numStr, Platform platform, String termNo, String productName,Integer score,Integer productId,String coverImage) {
 		super(account, createDateTime, numCount, winStatus, ip, ipAddr, termId, numStr, platform, termNo, productName,score,productId,coverImage);
 	}

@@ -9,7 +9,7 @@ import com.duobao.core.status.WinStatus;
  * 
  * @author MyEclipse Persistence Tools
  */
-public class NumPools extends AbstractNumPools implements
+public class NumPoolsEntity extends AbstractNumPools implements
 		java.io.Serializable {
 
 	// Constructors
@@ -18,16 +18,16 @@ public class NumPools extends AbstractNumPools implements
 	private static final long serialVersionUID = 1L;
 
 	/** default constructor */
-	public NumPools() {
+	public NumPoolsEntity() {
 	}
 
 	/** minimal constructor */
-	public NumPools(String luckNum, WinStatus winStatus) {
+	public NumPoolsEntity(String luckNum, WinStatus winStatus) {
 		super(luckNum, winStatus);
 	}
 
 	/** full constructor */
-	public NumPools(String luckNum, String account, Date createDateTime,
+	public NumPoolsEntity(String luckNum, String account, Date createDateTime,
 			Date drawDateTime, WinStatus winStatus, Integer termId) {
 		super(luckNum, account, createDateTime, drawDateTime, winStatus, termId);
 	}

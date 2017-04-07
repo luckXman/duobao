@@ -3,14 +3,14 @@ package com.duobao.core.entity.member;
 import java.util.Date;
 import java.util.List;
 
-public class Member extends AbstractMember {
-	private List<Address> addresses;
+public class MemberEntity extends AbstractMember {
+	private List<AddressEntity> addresses;
 
-	public Member() {
+	public MemberEntity() {
 		super();
 	}
 
-	public Member(Integer id, String account, String nickName, String name, Integer certType, String certNo,
+	public MemberEntity(Integer id, String account, String nickName, String name, Integer certType, String certNo,
 			String password, String email, String mobile, Integer status, Date registerDateTime, Date lastLoginDateTime,
 			Integer exprerience, Integer sourceId, String provider, String picture, Integer isMobileAuthed,
 			Integer isEmailAuthed, Integer isVIP, Integer isCharge, Integer isVirtualAccount) {
@@ -19,11 +19,11 @@ public class Member extends AbstractMember {
 				isCharge, isVirtualAccount);
 	}
 
-	public List<Address> getAddresses() {
+	public List<AddressEntity> getAddresses() {
 		return addresses;
 	}
 
-	public void setAddresses(List<Address> addresses) {
+	public void setAddresses(List<AddressEntity> addresses) {
 		this.addresses = addresses;
 	}
 

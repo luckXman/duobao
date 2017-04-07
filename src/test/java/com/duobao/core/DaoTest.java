@@ -13,8 +13,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.duobao.core.dao.member.AddressDao;
 import com.duobao.core.dao.member.MemberDao;
-import com.duobao.core.entity.member.Address;
-import com.duobao.core.entity.member.Member;
+import com.duobao.core.entity.member.AddressEntity;
+import com.duobao.core.entity.member.MemberEntity;
 import com.duobao.core.status.CommonStatus;
 
 public class DaoTest {
@@ -31,12 +31,12 @@ public class DaoTest {
 	public void saveAddressTest(){
 		AddressDao dao = (AddressDao) ctx.getBean("addressDao");
 		MemberDao mDao = (MemberDao) ctx.getBean("memberDao");
-		List<Address> addresses = dao.getAllAddress();
+		List<AddressEntity> addresses = dao.getAllAddress();
 		System.out.println(addresses.size());
-		Member member = mDao.getMemberById(6);
+		MemberEntity member = mDao.getMemberById(6);
 		System.out.println(member.toString());
 		
-		Address address = new Address();
+		AddressEntity address = new AddressEntity();
 		address.setAddress("address");
 		address.setAlias("alias");
 		address.setArea("area");
@@ -50,7 +50,7 @@ public class DaoTest {
 		address.setTelephone("telephone");
 		address.setZipCode("zipCode");
 		int id = dao.saveAddress(address);
-		Address add = dao.getAddressById(id);
+		AddressEntity add = dao.getAddressById(id);
 		System.out.println("save:"+add);
 		//System.out.println(address);
 	}
@@ -64,7 +64,7 @@ public class DaoTest {
 		for(Method mm :ms){
 			System.out.println(mm.getName());
 		}*/
-		Member member = new Member();
+		MemberEntity member = new MemberEntity();
 		member.setAccount("test");
 		member.setPassword("afdsa"); 
 		member.setNickName("nickName");

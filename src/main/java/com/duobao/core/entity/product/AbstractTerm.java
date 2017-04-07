@@ -22,7 +22,7 @@ public abstract class AbstractTerm implements java.io.Serializable {
 	private Integer id; //
 
 	@JSONField(name = "product")
-	private Product product; // 产品id
+	private ProductEntity product; // 产品id
 
 	private String term; // 期数
 
@@ -80,7 +80,7 @@ public abstract class AbstractTerm implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public AbstractTerm(Product product, String term, Integer totalPart, Date createTime, TermStatus status,
+	public AbstractTerm(ProductEntity product, String term, Integer totalPart, Date createTime, TermStatus status,
 			Integer multPart) {
 		this.product = product;
 		this.term = term;
@@ -91,7 +91,7 @@ public abstract class AbstractTerm implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AbstractTerm(Product product, String term, Integer totalPart, Integer soldPart, Integer modPart,
+	public AbstractTerm(ProductEntity product, String term, Integer totalPart, Integer soldPart, Integer modPart,
 			Date createTime, Integer hot, Integer isPos, Date openTime, TermStatus status, String account,
 			String luckNum, String openCounttime, Integer multPart, Integer maxPart, Date finishTime,
 			Integer memberBuyNum, String memberIp) {
@@ -125,11 +125,11 @@ public abstract class AbstractTerm implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Product getProduct() {
+	public ProductEntity getProduct() {
 		return this.product;
 	}
 
-	public void setProduct(Product product) {
+	public void setProduct(ProductEntity product) {
 		this.product = product;
 	}
 
